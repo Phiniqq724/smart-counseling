@@ -52,7 +52,7 @@ export const createPost = async (req: pkg.Request, res: pkg.Response) => {
   } catch (error) {
     return res.status(500).json({
       status: false,
-      message: "Internal server error",
+      message: `Internal server error ${error}`,
     });
   }
 };
