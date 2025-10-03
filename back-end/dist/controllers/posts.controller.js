@@ -1,8 +1,11 @@
-import { db } from "../global.js";
-export const getPosts = async (req, res) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createPost = exports.getPosts = void 0;
+const global_js_1 = require("../global.js");
+const getPosts = async (req, res) => {
     try {
         const { search } = req.query;
-        const posts = await db.posts.findMany({
+        const posts = await global_js_1.db.posts.findMany({
             where: {
                 title: {
                     contains: search,
@@ -26,10 +29,11 @@ export const getPosts = async (req, res) => {
         });
     }
 };
-export const createPost = async (req, res) => {
+exports.getPosts = getPosts;
+const createPost = async (req, res) => {
     try {
         const { userName, absent, authorClass, phoneNumber, title, description } = req.body;
-        const newPost = await db.posts.create({
+        const newPost = await global_js_1.db.posts.create({
             data: {
                 userName,
                 absent,
@@ -48,8 +52,9 @@ export const createPost = async (req, res) => {
     catch (error) {
         return res.status(500).json({
             status: false,
-            message: "Internal server error",
+            message: `Internal server error ${error}`,
         });
     }
 };
+exports.createPost = createPost;
 //# sourceMappingURL=posts.controller.js.map

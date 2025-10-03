@@ -64,11 +64,11 @@ model VerificationToken {
 model Posts {
   id          Int      @id @default(autoincrement())
   userName    String   @default("Anonimous")
-  absent      Int
-  authorClass String
-  phoneNumber Int
-  title       String
-  description String
+  absent      Int?
+  authorClass String?
+  phoneNumber String?
+  title       String?
+  description String?
   published   Boolean  @default(false)
   createdAt   DateTime @default(now())
 }
