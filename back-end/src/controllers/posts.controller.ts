@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import pkg from "express";
 import { db } from "../global.ts";
 
-export const getPosts = async (req: Request, res: Response) => {
+export const getPosts = async (req: pkg.Request, res: pkg.Response) => {
   try {
     const { search } = req.query;
     const posts = await db.posts.findMany({
@@ -29,7 +29,7 @@ export const getPosts = async (req: Request, res: Response) => {
   }
 };
 
-export const createPost = async (req: Request, res: Response) => {
+export const createPost = async (req: pkg.Request, res: pkg.Response) => {
   try {
     const { userName, absent, authorClass, phoneNumber, title, description } =
       req.body;
