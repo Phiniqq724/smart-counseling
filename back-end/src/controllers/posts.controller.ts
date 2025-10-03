@@ -1,5 +1,5 @@
 import pkg from "express";
-import { db } from "../global.ts";
+import { db } from "../global.js";
 
 export const getPosts = async (req: pkg.Request, res: pkg.Response) => {
   try {
